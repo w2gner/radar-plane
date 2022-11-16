@@ -8,8 +8,12 @@ public class Calculo {
 
 	// formata o decimal para duas casas depois da virgula
 	private static double formatarDecimal(double valor) {
-		DecimalFormat df = new DecimalFormat("###.##");
-		return Double.parseDouble(df.format(valor).replace(',', '.'));
+		try{
+			DecimalFormat df = new DecimalFormat("###.##");
+			return Double.parseDouble(df.format(valor).replace(',', '.'));
+		} catch (Exception x){
+			return 0.0;
+		}
 	}
 
 	public static void escalonar(Aviao aviao, double percX, double percY) {
